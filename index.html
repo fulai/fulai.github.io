@@ -271,8 +271,8 @@
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
+            <span class="ds-thread-count"  data-thread-key="2017/04/19/hello/" ></span>
         
-            <span class="disqus-comment-count" data-disqus-identifier="2017/04/19/hello/"></span>
         
     </a>
 
@@ -309,7 +309,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2017/04/19/hello/#more">阅读全文 >></a>
+          <a href="/2017/04/19/hello/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -340,8 +340,8 @@
         <i class="fa fa-comments-o" aria-hidden="true"></i>
         <span class="count-comment"></span>
         
+            <span class="ds-thread-count"  data-thread-key="2017/04/17/tcp_with_http/" ></span>
         
-            <span class="disqus-comment-count" data-disqus-identifier="2017/04/17/tcp_with_http/"></span>
         
     </a>
 
@@ -378,7 +378,7 @@
       
       
         <p class="article-more-link">
-          <a href="/2017/04/17/tcp_with_http/#more">阅读全文 >></a>
+          <a href="/2017/04/17/tcp_with_http/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -453,23 +453,28 @@
 
 
     
-
-    
-        <script id="dsq-count-scr" src="//null.disqus.com/count.js" async></script>
         <script>
             if ($(".left-col").is(":visible")) {
-                var $disqusCount = $(".disqus-comment-count");
-                $disqusCount.bind("DOMNodeInserted", function(e) {
-                    var num = $(this).text().replace(/[^0-9]/ig,"");
-                    if (num > 0) {
+                var duoshuoQuery = {short_name:"fulai100"};
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'http://static.duoshuo.com/embed.js';
+                    s.async = true; s.charset = 'UTF-8';
+                    (d.head || d.body).appendChild(s);
+                })();
+
+                $(document).ready(function(){
+                    var $duoshuoCount = $(".ds-thread-count");
+                    $duoshuoCount.bind("DOMNodeInserted", function(e) {
+                        var num = $(this).text().replace(/[^0-9]/ig,"");
                         $(this).siblings(".count-comment").text(num);
-                    }
-                    $(this).remove();
+                        $(this).remove();
+                    })
                 })
-            } else {
-                $(".disqus-comment-count").remove();
             }
         </script>
+    
+
      
 
 
