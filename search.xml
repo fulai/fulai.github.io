@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[Hello]]></title>
-      <url>/hello/</url>
+      <url>/undefined/hello/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <a id="more"></a>
 <the rest="" of="" contents="" |="" 余下全文="">
@@ -24,7 +24,7 @@
     
     <entry>
       <title><![CDATA[TCP和Http的区别]]></title>
-      <url>/tcp_with_http/</url>
+      <url>/undefined/tcp_with_http/</url>
       <content type="html"><![CDATA[<p>相信不少初学手机联网开发的朋友都想知道Http与Socket连接究竟有什么区别，希望通过自己的浅显理解能对初学者有所帮助。<br><a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
