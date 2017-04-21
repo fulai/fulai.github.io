@@ -15,12 +15,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="本文主要讲解android中常见的几种布局优化方式，写Android的xml布局时,用好 include、ViewStub、merge 这三个标签，可以是我们的xml更加简洁、高效,希望通过自己的浅显理解能对初学者有所帮助。">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android中常见的几种布局优化方式">
+<meta property="og:url" content="http://yoursite.com/blogs/layout/index.html">
 <meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="本文主要讲解android中常见的几种布局优化方式，写Android的xml布局时,用好 include、ViewStub、merge 这三个标签，可以是我们的xml更加简洁、高效,希望通过自己的浅显理解能对初学者有所帮助。">
+<meta property="og:updated_time" content="2017-04-21T15:11:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
+<meta name="twitter:title" content="android中常见的几种布局优化方式">
+<meta name="twitter:description" content="本文主要讲解android中常见的几种布局优化方式，写Android的xml布局时,用好 include、ViewStub、merge 这三个标签，可以是我们的xml更加简洁、高效,希望通过自己的浅显理解能对初学者有所帮助。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | 技术博客</title>
+<title>android中常见的几种布局优化方式 | 技术博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,8 +67,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -267,110 +272,207 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-layout" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/blogs/layout/" class="article-date">
+      <time datetime="2017-04-21T14:47:06.893Z" itemprop="datePublished">2017-04-21</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android中常见的几种布局优化方式
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/layout/" class="archive-article-date">
-      <time datetime="2017-04-21T14:47:06.893Z" itemprop="datePublished">04-21</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/layout/">android中常见的几种布局优化方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>本文主要讲解android中常见的几种布局优化方式，写Android的xml布局时,用好 include、ViewStub、merge 这三个标签，可以是我们的xml更加简洁、高效,希望通过自己的浅显理解能对初学者有所帮助。<br><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+
+<h3 id="1、减少布局层级"><a href="#1、减少布局层级" class="headerlink" title="1、减少布局层级"></a>1、减少布局层级</h3><p>布局中层级太多，一般是使用多个LinearLayout嵌套，导致层级过多，这个时候可以使用RelativeLayout代替LinearLayout，降低层级次数，因为RelativeLayout可定制功能丰富，比较简单，根据实际情况修改即可.</p>
+<h3 id="2、include标签"><a href="#2、include标签" class="headerlink" title="2、include标签"></a>2、include标签</h3><p>使用include标签，一些通用的布局，比如标题栏、按钮等，可以使用写到单独的布局中，使用include标签引用，既方便了以后修改，也增加了灵活性.<br>注意点:使用include最常见的问题就是findViewById时候出现NullPointerException,这个问题出现的前提是在布局中设置了id，被 include 进来的布局的根元素也设置了id,那么这时使用被 include 进来的根元素id进行 findViewById 就会出现NullPointerException，即设置include标签的id会取代布局的根元素的id。</p>
+<h3 id="3、merge标签"><a href="#3、merge标签" class="headerlink" title="3、merge标签"></a>3、merge标签</h3><p>使用”merge”标签减少层级,它可以删减多余的层级，优化UI，merge 原理就是在解析xml时候，如果是merge 标签，那么直接将其中的子元素添加到merge 标签parent中，这样就保证了不会引入额外的层级</p>
+<h3 id="4、ViewStub标签"><a href="#4、ViewStub标签" class="headerlink" title="4、ViewStub标签"></a>4、ViewStub标签</h3><p>使用ViewStub提高布局性能，在Android开发中,View是我们必须要接触的用来展示的技术.通常情况下随着View视图的越来越复杂,整体布局的性能也会随之下降.这里介绍一个在某些场景下提升布局性能的View,它就是ViewStub。<br>(1)ViewStub简介<br>    ①ViewStub是View的子类  ②它不可见,大小为0  ③用来延迟加载布局资源,保证性能,在ViewStub布局可显示之前，系统不会消耗资源去实例化里面的布局，可以节省系统资源消耗<br>(2)设置 ViewStub 中延时加载的布局有两种方式<br>    ①在xml中使用 android:layout 属性来设置<br>    ②在代码中使用 ViewStub.setLayoutResource(res); 来设置<br>(3)使ViewStub中布局显示出来也有两种方法<br>    ViewStub viewStub = (ViewStub) findViewById(R.id.viewstub)<br>    if(viewStub!=null){//未加载<br>        ①调用 viewStub.setVisibility(View.VISIBLE);<br>        ②调用 viewStub.inflate();<br>    }else{//已加载</p>
+<pre><code>}
+①和②两种方法都可以让布局显示
+</code></pre><p>(4)关于ViewStub的事<br>   ①除了inflate方法外,我们还可以调用setVisibility()方法加载布局文件<br>   ②一旦加载布局完成后,ViewStub会从当前布局层级中删除<br>   ③android:id指定ViewStub ID,用于查找ViewStub进行延迟加载<br>   ④android:layout延迟加载布局的资源id<br>   ⑤android:inflatedId加载的布局被重写的id,这里为RelativeLayout的id<br>(5)ViewStub的不足和优点<br>   ①ViewStub不支持merge标签.<br>   ②ViewStub对include标签支持良好的</p>
+</the>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/blogs/layout/">android中常见的几种布局优化方式</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">fulai</a></p>
+        <p><span>发布时间:</span>2017-04-21, 22:47:06</p>
+        <p><span>最后更新:</span>2017-04-21, 23:11:16</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/blogs/layout/" title="android中常见的几种布局优化方式">http://yoursite.com/blogs/layout/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/blogs/layout/　　作者: fulai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blogs/hello/">
+                    Hello
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/hello/" class="archive-article-date">
-      <time datetime="2017-04-19T13:40:30.120Z" itemprop="datePublished">04-19</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、减少布局层级"><span class="toc-number">1.</span> <span class="toc-text">1、减少布局层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、include标签"><span class="toc-number">2.</span> <span class="toc-text">2、include标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、merge标签"><span class="toc-number">3.</span> <span class="toc-text">3、merge标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、ViewStub标签"><span class="toc-number">4.</span> <span class="toc-text">4、ViewStub标签</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/hello/">Hello</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/tcp_with_http/" class="archive-article-date">
-      <time datetime="2017-04-17T14:18:49.580Z" itemprop="datePublished">04-17</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/tcp_with_http/">TCP和Http的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"android中常见的几种布局优化方式　| 技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2131524';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blogs/hello/" title="上一篇: Hello">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blogs/layout/">android中常见的几种布局优化方式</a></li><li class="post-list-item"><a class="post-list-link" href="/blogs/hello/">Hello</a></li><li class="post-list-item"><a class="post-list-link" href="/blogs/tcp_with_http/">TCP和Http的区别</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

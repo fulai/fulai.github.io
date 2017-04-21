@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title><![CDATA[android中常见的几种布局优化方式]]></title>
+      <url>/blogs/layout/</url>
+      <content type="html"><![CDATA[<p>本文主要讲解android中常见的几种布局优化方式，写Android的xml布局时,用好 include、ViewStub、merge 这三个标签，可以是我们的xml更加简洁、高效,希望通过自己的浅显理解能对初学者有所帮助。<br><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h3 id="1、减少布局层级"><a href="#1、减少布局层级" class="headerlink" title="1、减少布局层级"></a>1、减少布局层级</h3><p>布局中层级太多，一般是使用多个LinearLayout嵌套，导致层级过多，这个时候可以使用RelativeLayout代替LinearLayout，降低层级次数，因为RelativeLayout可定制功能丰富，比较简单，根据实际情况修改即可.</p>
+<h3 id="2、include标签"><a href="#2、include标签" class="headerlink" title="2、include标签"></a>2、include标签</h3><p>使用include标签，一些通用的布局，比如标题栏、按钮等，可以使用写到单独的布局中，使用include标签引用，既方便了以后修改，也增加了灵活性.<br>注意点:使用include最常见的问题就是findViewById时候出现NullPointerException,这个问题出现的前提是在布局中设置了id，被 include 进来的布局的根元素也设置了id,那么这时使用被 include 进来的根元素id进行 findViewById 就会出现NullPointerException，即设置include标签的id会取代布局的根元素的id。</p>
+<h3 id="3、merge标签"><a href="#3、merge标签" class="headerlink" title="3、merge标签"></a>3、merge标签</h3><p>使用”merge”标签减少层级,它可以删减多余的层级，优化UI，merge 原理就是在解析xml时候，如果是merge 标签，那么直接将其中的子元素添加到merge 标签parent中，这样就保证了不会引入额外的层级</p>
+<h3 id="4、ViewStub标签"><a href="#4、ViewStub标签" class="headerlink" title="4、ViewStub标签"></a>4、ViewStub标签</h3><p>使用ViewStub提高布局性能，在Android开发中,View是我们必须要接触的用来展示的技术.通常情况下随着View视图的越来越复杂,整体布局的性能也会随之下降.这里介绍一个在某些场景下提升布局性能的View,它就是ViewStub。<br>(1)ViewStub简介<br>    ①ViewStub是View的子类  ②它不可见,大小为0  ③用来延迟加载布局资源,保证性能,在ViewStub布局可显示之前，系统不会消耗资源去实例化里面的布局，可以节省系统资源消耗<br>(2)设置 ViewStub 中延时加载的布局有两种方式<br>    ①在xml中使用 android:layout 属性来设置<br>    ②在代码中使用 ViewStub.setLayoutResource(res); 来设置<br>(3)使ViewStub中布局显示出来也有两种方法<br>    ViewStub viewStub = (ViewStub) findViewById(R.id.viewstub)<br>    if(viewStub!=null){//未加载<br>        ①调用 viewStub.setVisibility(View.VISIBLE);<br>        ②调用 viewStub.inflate();<br>    }else{//已加载</p>
+<pre><code>}
+①和②两种方法都可以让布局显示
+</code></pre><p>(4)关于ViewStub的事<br>   ①除了inflate方法外,我们还可以调用setVisibility()方法加载布局文件<br>   ②一旦加载布局完成后,ViewStub会从当前布局层级中删除<br>   ③android:id指定ViewStub ID,用于查找ViewStub进行延迟加载<br>   ④android:layout延迟加载布局的资源id<br>   ⑤android:inflatedId加载的布局被重写的id,这里为RelativeLayout的id<br>(5)ViewStub的不足和优点<br>   ①ViewStub不支持merge标签.<br>   ②ViewStub对include标签支持良好的</p>
+</the>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hello]]></title>
       <url>/blogs/hello/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
