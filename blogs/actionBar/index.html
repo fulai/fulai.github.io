@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/blogs/actionBar/index.html">
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕">
-<meta property="og:updated_time" content="2017-04-24T15:26:50.000Z">
+<meta property="og:updated_time" content="2017-04-24T15:27:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android中actionBar使用">
 <meta name="twitter:description" content="Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕">
@@ -312,10 +312,8 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 
-<h3 id="1、设置actionBar"><a href="#1、设置actionBar" class="headerlink" title="1、设置actionBar"></a>1、设置actionBar</h3><p>(1)代码中<br>    ①没有使用v7兼容库，ActionBar actionBar = getActionBar();<br>    ②使用v7兼容库，ActionBar actionBar = getSupportActionBar();<br>    actionBar.hide() 隐藏actionBar<br>    actionBar.show() 显示actionBar<br> (2)xml中<br>    ①隐藏actionBar<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;style name=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</div></pre></td></tr></table></figure></p>
-<pre><code>②使用actionBar
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;style name=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</div></pre></td></tr></table></figure>
-</code></pre><h3 id="2、设置全屏，即隐藏导航栏"><a href="#2、设置全屏，即隐藏导航栏" class="headerlink" title="2、设置全屏，即隐藏导航栏"></a>2、设置全屏，即隐藏导航栏</h3><p>(1)代码中<br>    getWindow().setFlag(WindowManager.LayoutParams.FLAG_FULLSCREEN,<br>                WindowManager.LayoutParams.FLAG_FULLSCREEN);<br>(2)<item name="android:windowFullscreen">true</item></p>
+<h3 id="1、设置actionBar"><a href="#1、设置actionBar" class="headerlink" title="1、设置actionBar"></a>1、设置actionBar</h3><p>(1)代码中<br>    ①没有使用v7兼容库，ActionBar actionBar = getActionBar();<br>    ②使用v7兼容库，ActionBar actionBar = getSupportActionBar();<br>    actionBar.hide() 隐藏actionBar<br>    actionBar.show() 显示actionBar<br> (2)xml中<br>    ①隐藏actionBar<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style name=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</div><div class="line">②使用actionBar</div><div class="line">&lt;style name=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="2、设置全屏，即隐藏导航栏"><a href="#2、设置全屏，即隐藏导航栏" class="headerlink" title="2、设置全屏，即隐藏导航栏"></a>2、设置全屏，即隐藏导航栏</h3><p>(1)代码中<br>    getWindow().setFlag(WindowManager.LayoutParams.FLAG_FULLSCREEN,<br>                WindowManager.LayoutParams.FLAG_FULLSCREEN);<br>(2)<item name="android:windowFullscreen">true</item></p>
 <h3 id="3、设置translucent-system-bar-即设置导航栏的外观，4-4之后才支持-不能设置全屏"><a href="#3、设置translucent-system-bar-即设置导航栏的外观，4-4之后才支持-不能设置全屏" class="headerlink" title="3、设置translucent system bar,即设置导航栏的外观，4.4之后才支持,不能设置全屏"></a>3、设置translucent system bar,即设置导航栏的外观，4.4之后才支持,不能设置全屏</h3><p>(1)v19-v20<br>    <item name="android:windowTranslucentStatus">true</item><br>        <item name="android:windowTranslucentNavigation">true</item><br> (2)v21以上<br>    <item name="android:windowTranslucentStatus">false</item><br>        <item name="android:windowTranslucentNavigation">true</item><br>        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色--><br>        <item name="android:statusBarColor">@android:color/transparent</item><br>在布局根元素设置颜色，并且设置android:fitsSystemWindows=”true”，不会让系统导航栏和我们app的UI重叠</p>
 </the>
       
@@ -328,7 +326,7 @@
         <p><span>本文标题:</span><a href="/blogs/actionBar/">android中actionBar使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">fulai</a></p>
         <p><span>发布时间:</span>2017-04-24, 23:14:17</p>
-        <p><span>最后更新:</span>2017-04-24, 23:26:50</p>
+        <p><span>最后更新:</span>2017-04-24, 23:27:48</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blogs/actionBar/" title="android中actionBar使用">http://yoursite.com/blogs/actionBar/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/blogs/actionBar/　　作者: fulai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
