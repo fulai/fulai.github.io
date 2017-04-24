@@ -15,12 +15,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android中actionBar使用">
+<meta property="og:url" content="http://yoursite.com/blogs/actionBar/index.html">
 <meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕">
+<meta property="og:updated_time" content="2017-04-24T15:18:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
+<meta name="twitter:title" content="android中actionBar使用">
+<meta name="twitter:description" content="Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | 技术博客</title>
+<title>android中actionBar使用 | 技术博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,8 +67,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -267,139 +272,203 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-actionBar" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/blogs/actionBar/" class="article-date">
+      <time datetime="2017-04-24T15:14:17.199Z" itemprop="datePublished">2017-04-24</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android中actionBar使用
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/actionBar/" class="archive-article-date">
-      <time datetime="2017-04-24T15:14:17.199Z" itemprop="datePublished">04-24</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/actionBar/">android中actionBar使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>Action Bar是一种新増的导航栏功能，在Android 3.0之后加入到系统的API当中，它标识了用户当前操作界面的位置，并提供了额外的用户动作、界面导航等功能。使用ActionBar的好处是，它可以给提供一种全局统一的UI界面，使得用户在使用任何一款软件时都懂得该如何操作，并且ActionBar还可以自动适应各种不同大小的屏幕<br><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+
+<h3 id="1、设置actionBar"><a href="#1、设置actionBar" class="headerlink" title="1、设置actionBar"></a>1、设置actionBar</h3><p>(1)代码中<br>    ①没有使用v7兼容库，ActionBar actionBar = getActionBar();<br>    ②使用v7兼容库，ActionBar actionBar = getSupportActionBar();<br>    actionBar.hide() 隐藏actionBar<br>    actionBar.show() 显示actionBar<br> (2)xml中<br>    ①隐藏actionBar<br>    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"><br>    ②使用actionBar<br>    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"></p>
+<h3 id="2、设置全屏，即隐藏导航栏"><a href="#2、设置全屏，即隐藏导航栏" class="headerlink" title="2、设置全屏，即隐藏导航栏"></a>2、设置全屏，即隐藏导航栏</h3><p>(1)代码中<br>    getWindow().setFlag(WindowManager.LayoutParams.FLAG_FULLSCREEN,<br>                WindowManager.LayoutParams.FLAG_FULLSCREEN);<br>(2)<item name="android:windowFullscreen">true</item></p>
+<h3 id="3、设置translucent-system-bar-即设置导航栏的外观，4-4之后才支持-不能设置全屏"><a href="#3、设置translucent-system-bar-即设置导航栏的外观，4-4之后才支持-不能设置全屏" class="headerlink" title="3、设置translucent system bar,即设置导航栏的外观，4.4之后才支持,不能设置全屏"></a>3、设置translucent system bar,即设置导航栏的外观，4.4之后才支持,不能设置全屏</h3><p>(1)v19-v20<br>    <item name="android:windowTranslucentStatus">true</item><br>        <item name="android:windowTranslucentNavigation">true</item><br> (2)v21以上<br>    <item name="android:windowTranslucentStatus">false</item><br>        <item name="android:windowTranslucentNavigation">true</item><br>        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色--><br>        <item name="android:statusBarColor">@android:color/transparent</item><br>在布局根元素设置颜色，并且设置android:fitsSystemWindows=”true”，不会让系统导航栏和我们app的UI重叠</p>
+</style></p></the>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/blogs/actionBar/">android中actionBar使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">fulai</a></p>
+        <p><span>发布时间:</span>2017-04-24, 23:14:17</p>
+        <p><span>最后更新:</span>2017-04-24, 23:18:10</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/blogs/actionBar/" title="android中actionBar使用">http://yoursite.com/blogs/actionBar/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/blogs/actionBar/　　作者: fulai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/blogs/layout/">
+                    android中常见的几种布局优化方式
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/layout/" class="archive-article-date">
-      <time datetime="2017-04-21T14:47:06.893Z" itemprop="datePublished">04-21</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、设置actionBar"><span class="toc-number">1.</span> <span class="toc-text">1、设置actionBar</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/layout/">android中常见的几种布局优化方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/hello/" class="archive-article-date">
-      <time datetime="2017-04-19T13:40:30.120Z" itemprop="datePublished">04-19</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/hello/">Hello</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/blogs/tcp_with_http/" class="archive-article-date">
-      <time datetime="2017-04-17T14:18:49.580Z" itemprop="datePublished">04-17</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blogs/tcp_with_http/">TCP和Http的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"android中actionBar使用　| 技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2131524';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/blogs/layout/" title="上一篇: android中常见的几种布局优化方式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blogs/actionBar/">android中actionBar使用</a></li><li class="post-list-item"><a class="post-list-link" href="/blogs/layout/">android中常见的几种布局优化方式</a></li><li class="post-list-item"><a class="post-list-link" href="/blogs/hello/">Hello</a></li><li class="post-list-item"><a class="post-list-link" href="/blogs/tcp_with_http/">TCP和Http的区别</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
